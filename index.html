@@ -8,13 +8,19 @@
     <title>Prajit Rahul</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
     <div id="mobile-menu-open" class="shadow-large">
         <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
@@ -48,6 +54,11 @@
             <li>
                 <a href="#contact">Contact</a>
             </li>
+            <li style="display:inline-flex;align-items:center;">
+                <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i class="fa fa-moon-o" id="theme-icon"></i>
+                </button>
+            </li>
         </ul>
     </header>
     <!-- End header -->
@@ -55,12 +66,13 @@
     <div id="lead">
         <div id="lead-content">
             <h1>Prajit Rahul Selvam</h1>
-            <h2>MS CS Student @USC</h2>
+            <h2><span class="typewriter" id="typewriter"></span><span class="typewriter-cursor">|</span></h2>
             <a href="https://drive.google.com/file/d/1rHWGUTObBCPaV_3A6oNN-NwzhzRiXg0a/view?usp=sharing"
                 class="btn-rounded-white">Download Resume</a>
         </div>
         <!-- End #lead-content -->
 
+        <canvas id="particle-canvas"></canvas>
         <div id="lead-overlay"></div>
 
         <div id="lead-down">
@@ -119,7 +131,7 @@
         <h2 class="heading">Experience</h2>
         <div id="experience-timeline">
             <div data-date="August 2025 – December 2025">
-                <h3>University of Southern California — Los Angeles, US</h3>
+                <h3>University of Southern California</h3>
                 <h4>Teaching Assistant, CMGT 564: Methodological Fundamentals of Big Data in Communication</h4>
                 <ul>
                     <li>
@@ -133,7 +145,7 @@
                 </ul>
             </div>
             <div data-date="June 2025 – September 2025">
-                <h3>Yakria Tech Redmond</h3>
+                <h3>Yakria Tech</h3>
                 <h4>Software Development Engineering Intern</h4>
                 <ul>
                     <li>
@@ -319,7 +331,7 @@
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/LoRA.jpg" style="width: 300px; height: 300px;" alt="LoRA Image" />
+                        <img src="images/LoRA.jpg" alt="LoRA Image" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -338,7 +350,7 @@
                 </div>
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/Stock.PNG" style="width: 300px; height: 300px;" alt="Text Summarizer Image" />
+                        <img src="images/Stock.PNG" alt="Text Summarizer Image" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -356,7 +368,7 @@
                 <!-- End .project -->
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/Lib.PNG" style="width: 300px; height: 300px;" alt="Text Summarizer Image" />
+                        <img src="images/Lib.PNG" alt="Text Summarizer Image" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -378,7 +390,7 @@
                 </div>
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/LPR.jfif" style="width: 300px; height: 300px;" alt="LPR Image">
+                        <img src="images/LPR.jfif" alt="LPR Image">
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -397,7 +409,7 @@
                 </div>
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/text.PNG" style="width: 300px; height: 300px;" alt="Text Summarizer Image" />
+                        <img src="images/text.PNG" alt="Text Summarizer Image" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -413,8 +425,7 @@
 
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/Blood.jpeg" style="width: 300px; height: 300px;"
-                            alt="Blood Donor Finder Image" />
+                        <img src="images/Blood.jpeg" alt="Blood Donor Finder Image" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -430,7 +441,7 @@
                 </div>
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/ecommerce.jpg" style="width: 300px; height: 300px;" alt="Ecommerce Image" />
+                        <img src="images/ecommerce.jpg" alt="Ecommerce Image" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -502,33 +513,50 @@
 
     <div id="skills" class="background-alt">
         <h2 class="heading">Skills</h2>
-        <ul>
-            <li>Spring Boot</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Angular</li>
-            <li>Node.js</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>C</li>
-            <li>Java</li>
-            <li>C#</li>
-            <li>Solidity</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>AWS</li>
-            <li>Postgres</li>
-            <li>MySQL</li>
-            <li>SQLite</li>
-            <li>Mongo DB</li>
-            <li>Azure DevOps</li>
-            <li>Machine Learning Algorithms</li>
-            <li>Deep Learning</li>
-            <li>Time Series Analysis</li>
-            <li>Natural Language Processing</li>
-            <li>Computer Vision</li>
-        </ul>
+        <div class="skills-category">
+            <h3><i class="fa fa-code"></i> Languages</h3>
+            <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C</li>
+                <li>C#</li>
+                <li>JavaScript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Solidity</li>
+            </ul>
+        </div>
+        <div class="skills-category">
+            <h3><i class="fa fa-cogs"></i> Frameworks & Tools</h3>
+            <ul>
+                <li>Spring Boot</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Angular</li>
+                <li>Azure DevOps</li>
+            </ul>
+        </div>
+        <div class="skills-category">
+            <h3><i class="fa fa-magic"></i> AI & Machine Learning</h3>
+            <ul>
+                <li>Machine Learning Algorithms</li>
+                <li>Deep Learning</li>
+                <li>Natural Language Processing</li>
+                <li>Computer Vision</li>
+                <li>Time Series Analysis</li>
+            </ul>
+        </div>
+        <div class="skills-category">
+            <h3><i class="fa fa-database"></i> Databases & Cloud</h3>
+            <ul>
+                <li>Postgres</li>
+                <li>MySQL</li>
+                <li>SQLite</li>
+                <li>MongoDB</li>
+                <li>AWS</li>
+            </ul>
+        </div>
     </div>
     <!-- End #skills -->
 
@@ -644,6 +672,233 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            // ---- SCROLL PROGRESS BAR ----
+            var scrollProgress = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var progress = (scrollTop / scrollHeight) * 100;
+                if (scrollProgress) scrollProgress.style.width = progress + '%';
+            });
+
+            // ---- DARK MODE ----
+            var toggleBtn = document.getElementById('dark-mode-toggle');
+            var themeIcon = document.getElementById('theme-icon');
+            var root = document.documentElement;
+
+            function setDarkMode(isDark) {
+                root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+                if (themeIcon) {
+                    themeIcon.className = isDark ? 'fa fa-sun-o' : 'fa fa-moon-o';
+                }
+                localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+            }
+
+            var savedTheme = localStorage.getItem('darkMode');
+            if (savedTheme === 'true') { setDarkMode(true); }
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function () {
+                    var isDark = root.getAttribute('data-theme') === 'dark';
+                    setDarkMode(!isDark);
+                });
+            }
+
+            // ---- TYPEWRITER ----
+            var typewriterEl = document.getElementById('typewriter');
+            if (typewriterEl) {
+                var roles = ['MS CS Student @USC', 'Full-Stack Developer', 'AI Engineer'];
+                var roleIndex = 0;
+                var charIndex = 0;
+                var isDeleting = false;
+                var typingSpeed = 100;
+
+                function typewrite() {
+                    var currentRole = roles[roleIndex];
+                    if (isDeleting) {
+                        typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+                        charIndex--;
+                        typingSpeed = 50;
+                    } else {
+                        typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+                        charIndex++;
+                        typingSpeed = 100;
+                    }
+                    if (!isDeleting && charIndex === currentRole.length) {
+                        typingSpeed = 2000;
+                        isDeleting = true;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        typingSpeed = 500;
+                    }
+                    setTimeout(typewrite, typingSpeed);
+                }
+                typewrite();
+            }
+
+            // ---- PARTICLE CANVAS ----
+            var canvas = document.getElementById('particle-canvas');
+            if (canvas) {
+                var ctx = canvas.getContext('2d');
+                var particles = [];
+                var mouse = { x: null, y: null };
+                var particleCount = 80;
+                var connectionDistance = 120;
+
+                function resizeCanvas() {
+                    var lead = document.getElementById('lead');
+                    if (lead) { canvas.width = lead.offsetWidth; canvas.height = lead.offsetHeight; }
+                }
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
+
+                var leadEl = document.getElementById('lead');
+                if (leadEl) {
+                    leadEl.addEventListener('mousemove', function (e) {
+                        var rect = canvas.getBoundingClientRect();
+                        mouse.x = e.clientX - rect.left;
+                        mouse.y = e.clientY - rect.top;
+                    });
+                    leadEl.addEventListener('mouseleave', function () { mouse.x = null; mouse.y = null; });
+                }
+
+                function Particle() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = Math.random() * 2 + 1;
+                    this.opacity = Math.random() * 0.5 + 0.3;
+                }
+                Particle.prototype.update = function () {
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    if (mouse.x !== null && mouse.y !== null) {
+                        var dx = mouse.x - this.x, dy = mouse.y - this.y;
+                        var dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 150) { this.x += dx * 0.01; this.y += dy * 0.01; }
+                    }
+                };
+                Particle.prototype.draw = function () {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, ' + this.opacity + ')';
+                    ctx.fill();
+                };
+
+                for (var i = 0; i < particleCount; i++) { particles.push(new Particle()); }
+
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    for (var i = 0; i < particles.length; i++) {
+                        particles[i].update(); particles[i].draw();
+                        for (var j = i + 1; j < particles.length; j++) {
+                            var dx = particles[i].x - particles[j].x;
+                            var dy = particles[i].y - particles[j].y;
+                            var dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < connectionDistance) {
+                                var opacity = 1 - (dist / connectionDistance);
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + (opacity * 0.2) + ')';
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            }
+
+            // ---- AOS + DATA ATTRIBUTES ----
+            function addAosAttributes() {
+                var aboutRow = document.querySelector('#about .row');
+                if (aboutRow) aboutRow.setAttribute('data-aos', 'fade-up');
+
+                document.querySelectorAll('.education-block').forEach(function (b, i) {
+                    b.setAttribute('data-aos', 'fade-up');
+                    b.setAttribute('data-aos-delay', String(i * 100));
+                });
+                document.querySelectorAll('.vtimeline-point').forEach(function (p, i) {
+                    p.setAttribute('data-aos', i % 2 === 0 ? 'fade-right' : 'fade-left');
+                    p.setAttribute('data-aos-delay', String(i * 80));
+                });
+                document.querySelectorAll('.project').forEach(function (p, i) {
+                    p.setAttribute('data-aos', 'fade-up');
+                    p.setAttribute('data-aos-delay', String(i * 100));
+                });
+                document.querySelectorAll('.volunteering-item').forEach(function (v, i) {
+                    v.setAttribute('data-aos', 'zoom-in');
+                    v.setAttribute('data-aos-delay', String(i * 80));
+                });
+                document.querySelectorAll('.certificate-item').forEach(function (c, i) {
+                    c.setAttribute('data-aos', 'flip-up');
+                    c.setAttribute('data-aos-delay', String(i * 80));
+                });
+                document.querySelectorAll('.skills-category').forEach(function (s, i) {
+                    s.setAttribute('data-aos', 'fade-up');
+                    s.setAttribute('data-aos-delay', String(i * 100));
+                });
+                document.querySelectorAll('.heading').forEach(function (h) {
+                    if (!h.closest('#lead')) h.setAttribute('data-aos', 'fade-down');
+                });
+
+                if (typeof AOS !== 'undefined') { AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 80 }); }
+            }
+            setTimeout(addAosAttributes, 400);
+
+            // ---- VANILLA TILT ----
+            setTimeout(function () {
+                if (typeof VanillaTilt !== 'undefined') {
+                    document.querySelectorAll('.project').forEach(function (el) {
+                        VanillaTilt.init(el, { max: 8, speed: 400, glare: true, 'max-glare': 0.15, scale: 1.02 });
+                    });
+                }
+            }, 600);
+
+            // ---- CUSTOM CURSOR ----
+            var cursor = document.getElementById('custom-cursor');
+            var cursorDot = document.getElementById('custom-cursor-dot');
+            if (cursor && cursorDot && window.matchMedia('(pointer: fine)').matches) {
+                var cursorX = 0, cursorY = 0, dotX = 0, dotY = 0;
+                document.addEventListener('mousemove', function (e) {
+                    dotX = e.clientX; dotY = e.clientY;
+                    cursorDot.style.left = dotX + 'px';
+                    cursorDot.style.top = dotY + 'px';
+                    cursor.classList.add('active');
+                    cursorDot.classList.add('active');
+                });
+                function animateCursor() {
+                    cursorX += (dotX - cursorX) * 0.15;
+                    cursorY += (dotY - cursorY) * 0.15;
+                    cursor.style.left = cursorX + 'px';
+                    cursor.style.top = cursorY + 'px';
+                    requestAnimationFrame(animateCursor);
+                }
+                animateCursor();
+                document.addEventListener('mouseleave', function () {
+                    cursor.classList.remove('active');
+                    cursorDot.classList.remove('active');
+                });
+                var hoverEls = document.querySelectorAll('a, button, .project, .volunteering-item, .certificate-item, .skills-category li');
+                hoverEls.forEach(function (el) {
+                    el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
+                    el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
+                });
+            }
+
+        })();
+    </script>
 </body>
 
 </html>
