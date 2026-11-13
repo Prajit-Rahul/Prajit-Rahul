@@ -1,31 +1,38 @@
 # Prajit Rahul
 
-MS CS @ USC | Software Engineer focused on Full-Stack Systems, Applied AI, and Machine Learning
+Software Engineer | ML Compiler Engineering | AI Inference and Model Optimization
 
-I build reliable products across React/Flutter frontends, Spring Boot and Node.js backends, and ML/LLM workflows.
+I work on ML compilers and inference systems, from tensor operation lowering and runtime integration to model export, benchmarking, and compression. M.S. in Computer Science, University of Southern California.
 
-## Experience Highlights
+## Open Source Contributions
 
-- Built a Flutter + Node.js analytics dashboard that cut reporting latency by 35% and saved 8+ hours/week.
-- Built LLM pipelines that translate natural language into PromQL and integrate with observability platforms.
-- Delivered 10+ ML models across large datasets (up to 3.6M rows) across automotive, retail, and logistics.
+- **IREE encoding interfaces** — Generalized encoding capability checks across type propagation, HAL-to-Stream conversion, and dispatch dimension handling. [IREE #25089](https://github.com/iree-org/iree/pull/25089)
+- **Quantized operator lowering** — Developed torch-mlir lowering for quantized batched matrix multiplication, handling zero points, signedness, and integer widths. [torch-mlir #4791](https://github.com/llvm/torch-mlir/pull/4791)
+- **MLIR control-flow correctness** — Fixed parsing and printing of wide and negative switch-case values and added range diagnostics and regression tests. [LLVM #221490](https://github.com/llvm/llvm-project/pull/221490)
+- **IREE CPU backend and WebAssembly** — Added missing double-precision math support in the LLVM CPU backend and WebAssembly bitcode libraries. [IREE #24953](https://github.com/iree-org/iree/pull/24953)
+- **AMD RDNA4 code generation** — Added IREE regression tests for matrix instruction selection and packed tensor layouts, with CMake and Bazel integration. [IREE #24924](https://github.com/iree-org/iree/pull/24924)
 
-## Featured Projects
+## Compiler Engineering
 
-- [Lightweight Multilingual Translation for Edge Devices](https://github.com/Prajit-Rahul/Lightweight-Multilingual-Translation-for-Edge-Devices)
-- [Transformer-Based Multi-Modal Stock Market Prediction](https://github.com/Prajit-Rahul/Transformer-Based-Multi-Modal-Stock-Market-Prediction)
-- [Ecommerce Frontend](https://github.com/Prajit-Rahul/Ecommerce-Frontend-main) and [Ecommerce Backend](https://github.com/Prajit-Rahul/Ecommerce-Backend-main)
-- [Library Admin Frontend](https://github.com/Prajit-Rahul/Library-Admin-FrontEnd-Main) and [Library Admin Backend](https://github.com/Prajit-Rahul/Libraray-Admin-BackEnd-Main)
+- Develop C++ compiler changes with LLVM, MLIR, torch-mlir, and IREE, including tensor lowering to Linalg, numerical correctness, and runtime integration.
+- Integrate RISC-V CPU microkernels into IREE, covering data tiling and packing, hardware feature detection, runtime dispatch, and cross-compilation.
+- Validate compiler transformations and generated code with lit, FileCheck, IR inspection, numerical comparisons, and end-to-end execution.
 
-## Tech Stack
+## AI Inference and Optimization
 
-- Languages: Python, Java, JavaScript, C++, SQL
-- Frontend: React, Flutter, Angular, Material UI
-- Backend: Spring Boot, Node.js, Express, REST APIs, JWT
-- AI/ML: PyTorch, scikit-learn, NLP, LLM pipelines, forecasting, model compression
-- Data/Infra: PostgreSQL, Sequelize, Docker, Supabase, Grafana, Datadog
+- Build ONNX Runtime evaluation workflows for vision, vision-language, and audio models, covering ONNX export, dataset preparation, accuracy scoring, and inference performance.
+- Benchmark LLM serving with vLLM on AMD Instinct MI300X, measuring time to first token and generation throughput. Fine-tune Llama models with LoRA and GRPO.
+- Apply knowledge distillation and post-training quantization to reduce model footprint for edge inference. [Lightweight Multilingual Translation for Edge Devices](https://github.com/Prajit-Rahul/Lightweight-Multilingual-Translation-for-Edge-Devices)
+
+## Technical Skills
+
+- **Compiler and build tools** — C++, Python, LLVM, MLIR, Linalg, torch-mlir, IREE, CMake, Bazel, lit, FileCheck
+- **Inference and model optimization** — PyTorch, ONNX, ONNX Runtime, vLLM, LoRA, GRPO, knowledge distillation, post-training quantization
+- **GPU programming** — HIP, ROCm, Triton
+
+**Certification** — AMD ROCm Certified Associate
 
 ## Contact
 
-- Email: [pselvam@usc.edu](mailto:pselvam@usc.edu)
-- Portfolio: [prajit-rahul.github.io/portfolio-website](https://prajit-rahul.github.io/portfolio-website/)
+- [Email](mailto:pselvam@usc.edu)
+- [Portfolio](https://prajit-rahul.github.io/portfolio-website/)
