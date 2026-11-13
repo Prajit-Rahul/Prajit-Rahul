@@ -11,11 +11,6 @@
 </p>
 
 <p align="center">
-  <a href="https://prajit-rahul.github.io/portfolio-website/">Portfolio</a> ·
-  <a href="mailto:pselvam@usc.edu">Email</a>
-</p>
-
-<p align="center">
   <a href="#open-source-contributions">Open Source</a> ·
   <a href="#compiler-engineering">Compiler Engineering</a> ·
   <a href="#ai-inference-and-optimization">AI Inference</a> ·
