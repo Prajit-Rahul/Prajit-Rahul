@@ -11,6 +11,11 @@
 </p>
 
 <p align="center">
+  <a href="https://prajit-rahul.github.io/portfolio-website/">Portfolio</a> ·
+  <a href="mailto:pselvam@usc.edu">Email</a>
+</p>
+
+<p align="center">
   <a href="#open-source-contributions">Open Source</a> ·
   <a href="#compiler-engineering">Compiler Engineering</a> ·
   <a href="#ai-inference-and-optimization">AI Inference</a> ·
@@ -38,6 +43,8 @@
 
 ## AI Inference and Optimization
 
+- Built the **Edge AI Inference Benchmark** for vision, vision-language, audio anomaly detection, and speech recognition. Exported models to ONNX, verified inference outputs, and integrated them into ONNX Runtime.
+- Prepared **MMStar, ImageNet, NYUv2, ToyADMOS, and LibriSpeech** for evaluation. Implemented task-specific accuracy scoring and ran inference performance benchmarks separately.
 - Benchmarked **vLLM serving on AMD Instinct MI300X**, measuring time to first token and generation throughput.
 - Fine-tuned **Llama 3.1 8B Instruct** on GSM8K with Unsloth, LoRA, and GRPO. Tested the saved adapter with sample inference.
 
@@ -48,8 +55,8 @@
 
 ## Selected Projects
 
-- **Edge AI Inference Benchmark.** Built ONNX Runtime evaluation workflows for vision, vision-language, and audio models, covering ONNX export, dataset preparation, accuracy scoring, and inference performance.
 - **Lightweight Multilingual Translation for Edge Devices.** Distilled language-specific MarianMT teachers into a smaller multilingual student and applied post-training quantization for edge inference. [Project repository](https://github.com/Prajit-Rahul/Lightweight-Multilingual-Translation-for-Edge-Devices)
+- **Multimodal Stock Forecasting.** Compared SARIMA, LSTM, T5, and Temporal Fusion Transformer models using historical prices, text sentiment, and market indicators. [Project repository](https://github.com/Prajit-Rahul/Transformer-Based-Multi-Modal-Stock-Market-Prediction)
 
 ## Technical Skills
 
